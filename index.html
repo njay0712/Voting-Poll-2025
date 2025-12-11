@@ -3,309 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sozo Employee Awards 2025</title>
+    <title>Thank You!</title>
+    
     <style>
-        :root {
-            --primary: #4f46e5;
-            --secondary: #818cf8;
-            --accent: #c7d2fe;
-            --bg: #f8fafc;
-            --card-bg: #ffffff;
-            --text: #1e293b;
-        }
-
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            margin: 0;
-            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
             display: flex;
             justify-content: center;
+            align-items: center;
             min-height: 100vh;
+            margin: 0;
+            text-align: center;
         }
 
         .container {
-            width: 100%;
-            max-width: 800px;
-            padding: 40px 20px;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 50px;
-            animation: fadeIn 1s ease-out;
+            background-color: #ffffff;
+            padding: 40px 50px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 90%;
         }
 
         h1 {
-            color: var(--primary);
-            font-size: 2.5rem;
+            color: #007bff;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            animation: fadeInDown 1s ease-out; /* CSS Animation */
+        }
+
+        .message {
+            font-size: 1.2em;
             margin-bottom: 10px;
         }
 
-        p.subtitle {
-            font-size: 1.1rem;
-            color: #64748b;
-        }
-
-        .voting-form {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-left: 6px solid var(--primary);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-
-        .card h2 {
-            margin-top: 0;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .description {
-            background: var(--bg);
-            padding: 15px;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            line-height: 1.5;
-            color: #475569;
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        /* Input styling for Voter Name */
-        input[type="text"] {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            font-size: 1rem;
-            box-sizing: border-box; /* Ensures padding doesn't widen element */
-            transition: border-color 0.3s;
+        .detail {
+            font-size: 1em;
+            color: #555;
+            margin-bottom: 30px;
         }
         
-        input[type="text"]:focus {
-            outline: none;
-            border-color: var(--primary);
+        /* New styling for the social media section */
+        .social-cta {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
         }
 
-        select {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            font-size: 1rem;
-            background-color: white;
-            transition: border-color 0.3s;
-            cursor: pointer;
+        .social-cta p {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
         }
 
-        select:focus {
-            outline: none;
-            border-color: var(--primary);
+        .social-link {
+            text-decoration: none;
+            color: #1877f2; /* Facebook blue */
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: color 0.3s;
         }
 
-        .submit-btn {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        .social-link:hover {
+            color: #0056b3;
+        }
+
+        #home-button {
+            background-color: #28a745;
             color: white;
             border: none;
-            padding: 18px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            border-radius: 50px;
+            padding: 12px 25px;
+            border-radius: 8px;
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            margin-top: 20px;
-            width: 100%;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.2s;
         }
 
-        .submit-btn:hover {
-            transform: scale(1.02);
-            box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.4);
+        #home-button:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
         }
 
-        .submit-btn:active {
-            transform: scale(0.98);
+        /* Keyframe Animation for H1 */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-
-        .loader {
-            display: none;
-            border: 4px solid #f3f3f3;
-            border-radius: 50%;
-            border-top: 4px solid var(--primary);
-            width: 20px;
-            height: 20px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto;
-        }
-
-        #success-message {
-            display: none;
-            text-align: center;
-            padding: 40px;
-            background: #dcfce7;
-            color: #166534;
-            border-radius: 16px;
-            margin-top: 20px;
-            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes popIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
-
     </style>
 </head>
 <body>
-
     <div class="container">
-        <header>
-    <h1>
-        🏆 Employee Excellence Awards
-    </h1>
-    <p class="subtitle">Recognizing the heartbeat of our organization.</p>
-</header>
+        <h1 id="main-heading">Thank You for Participating! 🎉</h1>
+        <p class="message">Your contribution means a lot to us.</p>
+        <p class="detail" id="user-info">We appreciate your time.</p>
+        
+        <button id="home-button">Visit Our Facebook Page</button>
 
-        <form name="submit-to-google-sheet" class="voting-form" id="voteForm">
-            
-            <div class="card" style="border-left-color: #334155;">
-                <h2 style="color: #334155;">👤 Your Details</h2>
-                <div class="description">
-                    Please enter your name so we can verify your vote.
-                </div>
-                <label for="voterName">Your Name:</label>
-                <input type="text" name="voterName" id="voterName" placeholder="e.g. John Doe" required>
-            </div>
-
-            <div class="card">
-                <h2>❤️ Culture Champion Award</h2>
-                <div class="description">
-                    <strong>Explanation:</strong> Recognizes an employee who embodies and uplifts the company culture. Through positivity, team spirit, kindness, or consistency, they help sustain the heartbeat of the workplace.
-                </div>
-                <label for="culture">Select your nominee:</label>
-                <select name="culture" id="culture" required>
-                    <option value="" disabled selected>Choose a colleague...</option>
-                </select>
-            </div>
-
-            <div class="card" style="border-left-color: #f59e0b;">
-                <h2 style="color: #f59e0b;">☀️ Positive Attitude Award</h2>
-                <div class="description">
-                    <strong>Explanation:</strong> For the employee who consistently shows up with enthusiasm and positivity. Their attitude lifts others and positively influences the workplace environment.
-                </div>
-                <label for="attitude">Select your nominee:</label>
-                <select name="attitude" id="attitude" required>
-                    <option value="" disabled selected>Choose a colleague...</option>
-                </select>
-            </div>
-
-            <div class="card" style="border-left-color: #10b981;">
-                <h2 style="color: #10b981;">🛡️ Behind-the-Scenes Hero Award</h2>
-                <div class="description">
-                    <strong>Explanation:</strong> Celebrates those whose contribution is essential but often goes unseen—such as employees in IT, administration, logistics, or operations.
-                </div>
-                <label for="hero">Select your nominee:</label>
-                <select name="hero" id="hero" required>
-                    <option value="" disabled selected>Choose a colleague...</option>
-                </select>
-            </div>
-
-            <button type="submit" class="submit-btn">
-                <span id="btn-text">Submit Votes</span>
-                <div class="loader" id="loader"></div>
-            </button>
-        </form>
-
-        <div id="success-message">
-            <h2>Thank You! 🎉</h2>
-            <p>Your votes have been successfully recorded.</p>
+        <div class="social-cta">
+            <p>Help us grow the movement!</p>
+            <a href="https://www.facebook.com/TheSozoFoundation" target="_blank" class="social-link">
+                Follow The Sozo Foundation on Facebook 💙
+            </a>
         </div>
     </div>
 
     <script>
-        // ---------------------------------------------------------
-        // GOOGLE SCRIPT URL BELOW
-        // ---------------------------------------------------------
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbyrdYdxDxDnVNkX6q9wluHySDPuJx69xBrIYLSHPQ1EJhj7ePvXpW6cvoW5OUTNTQAM/exec';
-        // ---------------------------------------------------------
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Dynamic Content ---
+            const userInfoElement = document.getElementById('user-info');
+            
+            // A simple function to add a nice, dynamic touch:
+            setTimeout(() => {
+                userInfoElement.textContent = "Your submission has been successfully recorded!";
+            }, 1500); // Changes the message after 1.5 seconds
 
-        const nominees = [
-            "Kelebogile Bosman", "Shinnick Marthinus", "Kalonji Thethe Tshiala", "Elmarie Myers", "Ayanda Jacobs", 
-            "Tammerin Van Schalkwyk", "Tania Valentine", "Priscilla Carelse", "Lucille Windvogel", "Jesus Kwete",
-            "Stephanie Esau", "Yusrah Abrahams", "Maureen Bosman", "Anton Cuyler", "Elana Cuyler",
-            "Kim Smith", "Donovan Edwards", "Geraldine Erasmus", "Cecil John", "Nigel Jonas",
-            "Orelie Kabeya", "Thulani Ketelo", "Mamie Kita-Yala", "Edwina Lewis", "Nomthandazo Magadla",
-            "Ronel May", "Keenan Mowers", "Kate Patience", "Sherena Roux", "Zoe Daniels",
-            "Ashwyn Swartz", "Natasha Thomas", "Clive Williams", "Elijah Windvogel", "Moeneeb Hartzenberg",
-            "Shane Morris", "Chante Lakey", "Megan Julies", "Kayleigh Thomas", "Ruchelle Muller",
-            "Sizakele Ndhlovu", "Natasha King", "Charne Fritz", "Ella Ravell", "Valencia Valentine",
-            "Bernalee Essex", "Ingrid Farland", "Jason Edwards", "Chloe Spannenberg", "Juanita Lenford",
-            "Keegun Carelse", "Marsel Lewis", "Josh Abrahams", "Andrew Matroos", "Shirlyn Davids",
-            "Cynthia Kaudzu", "Jonathan Raphael", "Kezia Slinger", "Rachel Mashayamombe", "Lithemba Cetywayo", "Franklin Geduld", "Tashneeka Van Der Merwe"
-        ];
-
-        // Populate Dropdowns
-        const selects = document.querySelectorAll('select');
-        selects.forEach(select => {
-            nominees.sort().forEach(name => {
-                const option = document.createElement('option');
-                option.value = name;
-                option.textContent = name;
-                select.appendChild(option);
+            // --- Button Functionality ---
+            const homeButton = document.getElementById('home-button');
+            
+            homeButton.addEventListener('click', () => {
+                // The button now navigates directly to the specified Facebook link.
+                window.location.href = 'https://www.facebook.com/TheSozoFoundation'; 
             });
-        });
 
-        // Handle Form Submission
-        const form = document.forms['submit-to-google-sheet'];
-        const btn = document.querySelector('.submit-btn');
-        const btnText = document.getElementById('btn-text');
-        const loader = document.getElementById('loader');
-        const successMsg = document.getElementById('success-message');
-
-        form.addEventListener('submit', e => {
-            e.preventDefault();
-            btnText.style.display = 'none';
-            loader.style.display = 'block';
-            btn.disabled = true;
-
-            const formData = new FormData(form);
-
-            fetch(scriptURL, { method: 'POST', body: formData})
-                .then(response => {
-                    form.style.display = 'none';
-                    successMsg.style.display = 'block';
-                    console.log('Success!', response);
-                })
-                .catch(error => {
-                    console.error('Error!', error.message);
-                    alert("Something went wrong. Please try again.");
-                    btnText.style.display = 'block';
-                    loader.style.display = 'none';
-                    btn.disabled = false;
-                });
+            console.log("Thank You page loaded successfully.");
         });
     </script>
 </body>
 </html>
-
